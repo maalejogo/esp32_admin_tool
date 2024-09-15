@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="MoneAdmin.css" />
     <link rel="stylesheet" href="font-awesome.css" />
     <link rel="stylesheet" href="bootstrap-switch.css" />
+    <link rel="stylesheet" href="styles.css" />
     <!--END GLOBAL STYLES -->
     <!-- PAGE LEVEL STYLES -->
     <link href="layout2.css" rel="stylesheet" />
@@ -46,10 +47,10 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li>
-                                <a href="#"><i class="icon-user"></i> Usuario </a>
+                                <a href="esp-admin"><i class="icon-user"></i> Usuario </a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="icon-signout"></i> Salir </a>
+                            <li><a href="esp-logout"><i class="icon-signout"></i> Salir </a>
                             </li>
                         </ul>
                     </li>
@@ -60,57 +61,57 @@
         <!-- END HEADER SECTION -->
         <!-- MENU SECTION -->
        <div id="left">
-            <div class="media user-media well-small">
-                <a class="user-link" href="/">
-                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="esp32.png" />
-                </a>
-                <br />
-                <div class="media-body">
-                    <h5 class="media-heading"> ESP32</h5>
-                    <ul class="list-unstyled user-info">
-                        <li>
-                             <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
-                        </li>
-                    </ul>
-                </div>
-                <br />
+        <div class="media user-media well-small">
+            <a class="user-link" href="/">
+                <img class="media-object img-thumbnail user-img" alt="User Picture" src="esp32.png" />
+            </a>
+            <br />
+            <div class="media-body">
+                <h5 class="media-heading"> ESP32</h5>
+                <ul class="list-unstyled user-info">
+                    <li>
+                         <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
+                    </li>
+                </ul>
             </div>
-            <ul id="menu" class="collapse">
-                <li class="panel">
-                    <a href="/" >
-                        <i class="icon-th-large"></i> Dashboard
-                    </a>                   
-                </li>
-                <li class="panel">
-                    <a href="#" >
-                        <i class="icon-signal"></i> Wifi
-                    </a>                   
-                </li>
-                <li class="panel">
-                    <a href="#" >
-                        <i class="icon-sitemap"></i> MQTT
-                    </a>                   
-                </li>
-                <li class="panel ">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-cog"> </i> ADMINISTRAR     
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                    </a>
-                    <ul class="collapse" id="component-nav">
-                        <li class=""><a href="#"><i class="icon-angle-right"></i> Dispositivo </a></li>
-                        <li class=""><a href="#"><i class="icon-angle-right"></i> Ajustes predeterminados de fábrica </a></li>
-                        <li class=""><a href="#"><i class="icon-angle-right"></i> Reinicio </a></li>
-                        <li class=""><a href="#"><i class="icon-angle-right"></i> Contraseña </a></li>
-                    </ul>
-                </li>
-                <li class="panel">
-                    <a href="#" >
-                        <i class="icon-signout"></i> Salir
-                    </a>                   
-            </ul>
+            <br />
         </div>
-        <!--END MENU SECTION -->
+        <ul id="menu" class="collapse">
+            <li class="panel active">
+                <a href="/" >
+                    <i class="icon-th-large"></i> Dashboard
+                </a>                   
+            </li>
+            <li class="panel">
+                <a href="esp-wifi" >
+                    <i class="icon-signal"></i> Wifi
+                </a>                   
+            </li>
+            <li class="panel">
+                <a href="esp-mqtt" >
+                    <i class="icon-sitemap"></i> MQTT
+                </a>                   
+            </li>
+            <li class="panel ">
+                <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
+                    <i class="icon-cog"> </i> ADMINISTRAR     
+                    <span class="pull-right">
+                      <i class="icon-angle-left"></i>
+                </a>
+                <ul class="collapse" id="component-nav">
+                    <li class=""><a href="esp-device"><i class="icon-angle-right"></i> Dispositivo </a></li>
+                    <li class=""><a href="esp-restore"><i class="icon-angle-right"></i> Ajustes predeterminados de fábrica </a></li>
+                    <li class=""><a href="esp-restart"><i class="icon-angle-right"></i> Reinicio </a></li>
+                    <li class=""><a href="esp-admin"><i class="icon-angle-right"></i> Contraseña </a></li>
+                </ul>
+            </li>
+            <li class="panel">
+                <a href="esp-logout" >
+                    <i class="icon-signout"></i> Salir
+                </a>                   
+        </ul>
+    </div>
+    <!--END MENU SECTION -->
         <!--PAGE CONTENT -->
         <div id="content">
             <div class="inner" style="min-height:1200px;">
@@ -119,7 +120,86 @@
                         <h2>Estado del Dispositivo</h2>
                     </div>
                 </div>
-                <hr />
+                <hr>
+                <!--BLOCK SECTION -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div style="text-align: center;">
+                            <a class="quick-btn" href="#">
+                                <i class="icon-info-sign icon-2x"></i>
+                                <span> Dispositivo</span>
+                                <span class="label label-danger">ESP32</span>
+                            </a>
+                            <a class="quick-btn" href="#">
+                                <i class="icon-signal icon-2x"></i>
+                                <span>WiFi RSSI</span>
+                                <span class="label label-success">-66 dBm</span>
+                            </a>
+                            <a class="quick-btn" href="#">
+                                <i class="icon-sitemap icon-2x"></i>
+                                <span>MQTT</span>
+                                <span class="label label-warning">Online</span>
+                            </a>
+                            <a class="quick-btn" href="#">
+                                <i class="icon-fire icon-2x"></i>
+                                <span>Temp CPU</span>
+                                <span class="label btn-metis-2">53.33 °C</span>
+                            </a>
+                            <a class="quick-btn" href="#">
+                                <i class="icon-retweet icon-2x"></i>
+                                <span>Reinicios</span>
+                                <span class="label btn-metis-4">9</span>
+                            </a>
+                            <a class="quick-btn" href="#">
+                                <i class="icon-time icon-2x"></i>
+                                <span>Tiempo Activo</span>
+                                <span class="label label-default">1:18:35:32</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--END BLOCK SECTION -->
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <i class="icon-info-sign"></i>
+                            Primary Panel
+                            <span class="badge pull-right">adminesp32 / 9B1C5210CE0C3D</span>
+                        </div>
+                        <div class="panel-body">
+                            <h3>Inalámbrico</h3>
+                            <div><span class="label label-primary">Estado WiFi:</span> <span id="WFEstatus"><span class="label label-success">CONECTADO</span></span></div>
+                            <div><span class="label label-primary">Red WiFi:</span> <span>casa</span></span></div>
+                            <div><span class="label label-primary">IP WiFi:</span> <span>192.168.0.27</span></span></div>
+                            <div><span class="label label-primary">MAC WiFi:</span> <span>10.65.A5.9E.77</span></span></div>
+                            <div><span class="label label-primary">RSSI WiFi:</span> <span>-67 dBm</span></span></div>
+                            <div><span class="label label-primary">Señal WiFi:</span> <span>66%</span></span></div>
+                            <hr>
+                            <h3>Broker MQTT</h3>
+                            <div><span class="label label-primary">Estado MQTT:</span> <span id="WFEstatus"><span class="label label-success">CONECTADO</span></span></div>
+                            <div><span class="label label-primary">Servidor MQTT:</span> <span>cubaelectronica.com</span></span></div>
+                            <div><span class="label label-primary">Usuario MQTT:</span> <span>cuba_iot</span></span></div>
+                            <div><span class="label label-primary">Cliente ID MQTT:</span> <span>ESP321234567890AB</span></span></div>
+                            <hr>
+                            <h3>Información</h3>
+                            <div><span class="label label-primary">Identificación:</span> <span>adminesp32</span></span></div>
+                            <div><span class="label label-primary">Número de Serie</span> <span>9B1C5210CE0C3D</span></span></div>
+                            <div><span class="label label-primary">mDNS Url</span> <span>http://adminesp32.local/</span></span></div>
+                            <div><span class="label label-primary">Dirección IP del cliente</span> <span>192.168.0.29</span></span></div>
+                            <div><span class="label label-primary">Navegador del Cliente:</span> <span>Mozilla/5.0....</span></span></div>
+                            <div><span class="label label-primary">Versión del Firmware:</span> <span>v1.1.0a-Build-20241837</span></span></div>
+                            <div><span class="label label-primary">SDK:</span> <span>v3.3.5-1-g85c43024c</span></span></div>
+                            <div><span class="label label-primary">Versión del Hardware:</span> <span>ADMINESP32 v1 00000000</span></span></div>
+                            <div><span class="label label-primary">CPU FREQ:</span> <span>240 MHz</span></span></div>
+                            <div><span class="label label-primary">RAM SIZE:</span> <span>341.22 KB</span></span></div>
+                            <div><span class="label label-primary">FLASH SIZE:</span> <span>4.00 MB</span></span></div>
+                            <div><span class="label label-primary">Fabricante:</span> <span>ELECTRONIC IOT</span></span></div>
+                            <div><span class="label label-primary">Tiempo de Actividad del Sistema:</span> <span>1:22:15:40</span></span></div>
+                            <div><span class="label label-primary">Cantidad de Reinicios:</span> <span>9</span></span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!--END PAGE CONTENT -->
@@ -165,6 +245,7 @@
     <script src="bootstrap.min.js"></script>
     <script src="modernizr-2.6.2.min.js"></script>
     <script src="bootstrap-switch.min.js"></script>
+    <script src="scripts.js"></script>
     <!-- END GLOBAL SCRIPTS -->
 </body>
     <!-- END BODY-->
